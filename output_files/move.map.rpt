@@ -1,0 +1,648 @@
+Analysis & Synthesis report for move
+Sat Jul 14 14:16:26 2018
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: vga:display|ceas:c|divizor_simplu:d
+ 13. Parameter Settings for User Entity Instance: vga:display|divizor_simplu:d1
+ 14. Parameter Settings for User Entity Instance: vga:display|choose_sync:sincr|syncro:s0
+ 15. Parameter Settings for User Entity Instance: vga:display|choose_sync:sincr|syncro:s0|hsync:h1
+ 16. Parameter Settings for User Entity Instance: vga:display|choose_sync:sincr|syncro:s0|vsync:v1
+ 17. Parameter Settings for User Entity Instance: vga:display|choose_sync:sincr|syncro:s1
+ 18. Parameter Settings for User Entity Instance: vga:display|choose_sync:sincr|syncro:s1|hsync:h1
+ 19. Parameter Settings for User Entity Instance: vga:display|choose_sync:sincr|syncro:s1|vsync:v1
+ 20. Port Connectivity Checks: "ps2:keyboard"
+ 21. Port Connectivity Checks: "vga:display|choose_sync:sincr|syncro:s1|vsync:v1"
+ 22. Port Connectivity Checks: "vga:display|choose_sync:sincr|syncro:s1|hsync:h1"
+ 23. Port Connectivity Checks: "vga:display|choose_sync:sincr|syncro:s0|vsync:v1"
+ 24. Port Connectivity Checks: "vga:display|choose_sync:sincr|syncro:s0|hsync:h1"
+ 25. Port Connectivity Checks: "vga:display"
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
+ 28. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Jul 14 14:16:26 2018           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; move                                            ;
+; Top-level Entity Name              ; move                                            ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 379                                             ;
+;     Total combinational functions  ; 378                                             ;
+;     Dedicated logic registers      ; 138                                             ;
+; Total registers                    ; 138                                             ;
+; Total pins                         ; 31                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C20F484C7       ;                    ;
+; Top-level entity name                                                      ; move               ; move               ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                      ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                        ; Library ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------+---------+
+; vsync.v                          ; yes             ; User Verilog HDL File  ; E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/move/vsync.v          ;         ;
+; verificare.v                     ; yes             ; User Verilog HDL File  ; E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/move/verificare.v     ;         ;
+; syncro.v                         ; yes             ; User Verilog HDL File  ; E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/move/syncro.v         ;         ;
+; SIPO.v                           ; yes             ; User Verilog HDL File  ; E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/move/SIPO.v           ;         ;
+; ps2.v                            ; yes             ; User Verilog HDL File  ; E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/move/ps2.v            ;         ;
+; latch_D_ck.v                     ; yes             ; User Verilog HDL File  ; E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/move/latch_D_ck.v     ;         ;
+; hsync.v                          ; yes             ; User Verilog HDL File  ; E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/move/hsync.v          ;         ;
+; divizor_simplu.v                 ; yes             ; User Verilog HDL File  ; E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/move/divizor_simplu.v ;         ;
+; choose_sync.v                    ; yes             ; User Verilog HDL File  ; E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/move/choose_sync.v    ;         ;
+; ceas.v                           ; yes             ; User Verilog HDL File  ; E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/move/ceas.v           ;         ;
+; move.v                           ; yes             ; User Verilog HDL File  ; E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/move/move.v           ;         ;
+; vga.v                            ; yes             ; User Verilog HDL File  ; E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/move/vga.v            ;         ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                          ;
++---------------------------------------------+------------------------+
+; Resource                                    ; Usage                  ;
++---------------------------------------------+------------------------+
+; Estimated Total logic elements              ; 379                    ;
+;                                             ;                        ;
+; Total combinational functions               ; 378                    ;
+; Logic element usage by number of LUT inputs ;                        ;
+;     -- 4 input functions                    ; 110                    ;
+;     -- 3 input functions                    ; 95                     ;
+;     -- <=2 input functions                  ; 173                    ;
+;                                             ;                        ;
+; Logic elements by mode                      ;                        ;
+;     -- normal mode                          ; 212                    ;
+;     -- arithmetic mode                      ; 166                    ;
+;                                             ;                        ;
+; Total registers                             ; 138                    ;
+;     -- Dedicated logic registers            ; 138                    ;
+;     -- I/O registers                        ; 0                      ;
+;                                             ;                        ;
+; I/O pins                                    ; 31                     ;
+; Embedded Multiplier 9-bit elements          ; 0                      ;
+; Maximum fan-out node                        ; vga:display|ceas:c|out ;
+; Maximum fan-out                             ; 58                     ;
+; Total fan-out                               ; 1434                   ;
+; Average fan-out                             ; 2.62                   ;
++---------------------------------------------+------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                             ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------+--------------+
+; Compilation Hierarchy Node  ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                    ; Library Name ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------+--------------+
+; |move                       ; 378 (0)           ; 138 (0)      ; 0           ; 0            ; 0       ; 0         ; 31   ; 0            ; |move                                                  ; work         ;
+;    |ps2:keyboard|           ; 38 (3)            ; 15 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|ps2:keyboard                                     ; work         ;
+;       |SIPO:registru|       ; 15 (15)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|ps2:keyboard|SIPO:registru                       ; work         ;
+;       |latch_D_ck:ceas|     ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|ps2:keyboard|latch_D_ck:ceas                     ; work         ;
+;       |latch_D_ck:date|     ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|ps2:keyboard|latch_D_ck:date                     ; work         ;
+;       |latch_D_ck:iesire|   ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|ps2:keyboard|latch_D_ck:iesire                   ; work         ;
+;       |verificare:ver|      ; 17 (17)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|ps2:keyboard|verificare:ver                      ; work         ;
+;    |vga:display|            ; 340 (213)         ; 123 (27)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|vga:display                                      ; work         ;
+;       |ceas:c|              ; 2 (1)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|vga:display|ceas:c                               ; work         ;
+;          |divizor_simplu:d| ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|vga:display|ceas:c|divizor_simplu:d              ; work         ;
+;       |choose_sync:sincr|   ; 107 (25)          ; 77 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|vga:display|choose_sync:sincr                    ; work         ;
+;          |syncro:s0|        ; 39 (3)            ; 26 (1)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|vga:display|choose_sync:sincr|syncro:s0          ; work         ;
+;             |hsync:h1|      ; 19 (19)           ; 13 (13)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|vga:display|choose_sync:sincr|syncro:s0|hsync:h1 ; work         ;
+;             |vsync:v1|      ; 17 (17)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|vga:display|choose_sync:sincr|syncro:s0|vsync:v1 ; work         ;
+;          |syncro:s1|        ; 43 (5)            ; 26 (1)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|vga:display|choose_sync:sincr|syncro:s1          ; work         ;
+;             |hsync:h1|      ; 19 (19)           ; 13 (13)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|vga:display|choose_sync:sincr|syncro:s1|hsync:h1 ; work         ;
+;             |vsync:v1|      ; 19 (19)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|vga:display|choose_sync:sincr|syncro:s1|vsync:v1 ; work         ;
+;       |divizor_simplu:d1|   ; 18 (18)           ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |move|vga:display|divizor_simplu:d1                    ; work         ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                 ;
++----------------------------------------------------+---------------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal                   ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------------------------+------------------------+
+; ps2:keyboard|latch_D_ck:iesire|Q                   ; clk                                   ; yes                    ;
+; ps2:keyboard|latch_D_ck:ceas|Q                     ; clk                                   ; yes                    ;
+; ps2:keyboard|verificare:ver|ok                     ; ps2:keyboard|verificare:ver|ok        ; yes                    ;
+; ps2:keyboard|verificare:ver|sum                    ; ps2:keyboard|verificare:ver|LessThan0 ; yes                    ;
+; ps2:keyboard|latch_D_ck:date|Q                     ; clk                                   ; yes                    ;
+; Number of user-specified and inferred latches = 5  ;                                       ;                        ;
++----------------------------------------------------+---------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                         ;
++--------------------------------------------------+-----------------------------------------+
+; Register name                                    ; Reason for Removal                      ;
++--------------------------------------------------+-----------------------------------------+
+; vga:display|v_resolution[0..2]                   ; Stuck at GND due to stuck port data_in  ;
+; vga:display|v_resolution[6]                      ; Stuck at VCC due to stuck port data_in  ;
+; vga:display|v_resolution[10]                     ; Stuck at GND due to stuck port data_in  ;
+; vga:display|h_resolution[0..4,6]                 ; Stuck at GND due to stuck port data_in  ;
+; vga:display|h_resolution[9]                      ; Stuck at VCC due to stuck port data_in  ;
+; vga:display|h_resolution[10]                     ; Stuck at GND due to stuck port data_in  ;
+; vga:display|R2[3]~en                             ; Lost fanout                             ;
+; vga:display|R2[2]~en                             ; Lost fanout                             ;
+; vga:display|R2[1]~en                             ; Lost fanout                             ;
+; vga:display|R2[0]~en                             ; Lost fanout                             ;
+; vga:display|G2[3]~en                             ; Lost fanout                             ;
+; vga:display|G2[2]~en                             ; Lost fanout                             ;
+; vga:display|G2[1]~en                             ; Lost fanout                             ;
+; vga:display|G2[0]~en                             ; Lost fanout                             ;
+; vga:display|B2[3]~en                             ; Lost fanout                             ;
+; vga:display|B2[2]~en                             ; Lost fanout                             ;
+; vga:display|B2[1]~en                             ; Lost fanout                             ;
+; vga:display|B2[0]~en                             ; Lost fanout                             ;
+; vga:display|B1[0]~en                             ; Lost fanout                             ;
+; vga:display|B1[1]~en                             ; Lost fanout                             ;
+; vga:display|B1[2]~en                             ; Lost fanout                             ;
+; vga:display|B1[3]~en                             ; Lost fanout                             ;
+; vga:display|G1[0]~en                             ; Lost fanout                             ;
+; vga:display|G1[1]~en                             ; Lost fanout                             ;
+; vga:display|G1[2]~en                             ; Lost fanout                             ;
+; vga:display|G1[3]~en                             ; Lost fanout                             ;
+; vga:display|R1[0]~en                             ; Lost fanout                             ;
+; vga:display|R1[1]~en                             ; Lost fanout                             ;
+; vga:display|R1[2]~en                             ; Lost fanout                             ;
+; vga:display|R1[3]~en                             ; Lost fanout                             ;
+; vga:display|B2[1..3]                             ; Merged with vga:display|B2[0]           ;
+; vga:display|R1[0..2]                             ; Merged with vga:display|R1[3]           ;
+; vga:display|G1[0..3]                             ; Merged with vga:display|R1[3]           ;
+; vga:display|B1[0..3]                             ; Merged with vga:display|R1[3]           ;
+; vga:display|R2[0..2]                             ; Merged with vga:display|R2[3]           ;
+; vga:display|G2[0..2]                             ; Merged with vga:display|G2[3]           ;
+; vga:display|v_resolution[4,9]                    ; Merged with vga:display|v_resolution[3] ;
+; vga:display|h_resolution[5,8]                    ; Merged with vga:display|v_resolution[3] ;
+; vga:display|v_resolution[5,7,8]                  ; Merged with vga:display|v_resolution[3] ;
+; vga:display|h_resolution[7]                      ; Merged with vga:display|v_resolution[3] ;
+; vga:display|ceas:c|divizor_simplu:d|numar[1..31] ; Lost fanout                             ;
+; vga:display|divizor_simplu:d1|numar[18..31]      ; Lost fanout                             ;
+; Total Number of Removed Registers = 110          ;                                         ;
++--------------------------------------------------+-----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 138   ;
+; Number of registers using Synchronous Clear  ; 44    ;
+; Number of registers using Synchronous Load   ; 5     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 22    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |move|ps2:keyboard|SIPO:registru|count[1] ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |move|vga:display|i[3]                    ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |move|vga:display|i[5]                    ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 18 LEs               ; 9 LEs                  ; Yes        ; |move|vga:display|j[5]                    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |move|vga:display|j[7]                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga:display|ceas:c|divizor_simplu:d ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; N              ; 0     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga:display|divizor_simplu:d1 ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; N              ; 17    ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga:display|choose_sync:sincr|syncro:s0 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; a              ; 640   ; Signed Integer                                              ;
+; x              ; 656   ; Signed Integer                                              ;
+; x_back         ; 752   ; Signed Integer                                              ;
+; x_total        ; 800   ; Signed Integer                                              ;
+; b              ; 480   ; Signed Integer                                              ;
+; y              ; 490   ; Signed Integer                                              ;
+; y_back         ; 492   ; Signed Integer                                              ;
+; y_total        ; 525   ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga:display|choose_sync:sincr|syncro:s0|hsync:h1 ;
++----------------+-------+----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                 ;
++----------------+-------+----------------------------------------------------------------------+
+; a              ; 640   ; Signed Integer                                                       ;
+; x              ; 656   ; Signed Integer                                                       ;
+; x_back         ; 752   ; Signed Integer                                                       ;
+; x_total        ; 800   ; Signed Integer                                                       ;
++----------------+-------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga:display|choose_sync:sincr|syncro:s0|vsync:v1 ;
++----------------+-------+----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                 ;
++----------------+-------+----------------------------------------------------------------------+
+; b              ; 480   ; Signed Integer                                                       ;
+; y              ; 490   ; Signed Integer                                                       ;
+; y_back         ; 492   ; Signed Integer                                                       ;
+; y_total        ; 525   ; Signed Integer                                                       ;
++----------------+-------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga:display|choose_sync:sincr|syncro:s1 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; a              ; 800   ; Signed Integer                                              ;
+; x              ; 856   ; Signed Integer                                              ;
+; x_back         ; 976   ; Signed Integer                                              ;
+; x_total        ; 1040  ; Signed Integer                                              ;
+; b              ; 600   ; Signed Integer                                              ;
+; y              ; 637   ; Signed Integer                                              ;
+; y_back         ; 643   ; Signed Integer                                              ;
+; y_total        ; 666   ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga:display|choose_sync:sincr|syncro:s1|hsync:h1 ;
++----------------+-------+----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                 ;
++----------------+-------+----------------------------------------------------------------------+
+; a              ; 800   ; Signed Integer                                                       ;
+; x              ; 856   ; Signed Integer                                                       ;
+; x_back         ; 976   ; Signed Integer                                                       ;
+; x_total        ; 1040  ; Signed Integer                                                       ;
++----------------+-------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga:display|choose_sync:sincr|syncro:s1|vsync:v1 ;
++----------------+-------+----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                 ;
++----------------+-------+----------------------------------------------------------------------+
+; b              ; 600   ; Signed Integer                                                       ;
+; y              ; 637   ; Signed Integer                                                       ;
+; y_back         ; 643   ; Signed Integer                                                       ;
+; y_total        ; 666   ; Signed Integer                                                       ;
++----------------+-------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ps2:keyboard"                                                                       ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; led  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga:display|choose_sync:sincr|syncro:s1|vsync:v1"                                          ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; disp_active ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga:display|choose_sync:sincr|syncro:s1|hsync:h1"                                          ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; disp_active ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga:display|choose_sync:sincr|syncro:s0|vsync:v1"                                          ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; disp_active ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga:display|choose_sync:sincr|syncro:s0|hsync:h1"                                          ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; disp_active ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga:display"                                                                                                              ;
++------+--------+----------+---------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                   ;
++------+--------+----------+---------------------------------------------------------------------------------------------------------------------------+
+; xpos ; Output ; Warning  ; Output or bidir port (11 bits) is wider than the port expression (1 bits) it drives; bit(s) "xpos[10..1]" have no fanouts ;
+; xpos ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                       ;
+; ypos ; Output ; Warning  ; Output or bidir port (11 bits) is wider than the port expression (1 bits) it drives; bit(s) "ypos[10..1]" have no fanouts ;
+; ypos ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                       ;
++------+--------+----------+---------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sat Jul 14 14:16:23 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off move -c move
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file vsync.v
+    Info (12023): Found entity 1: vsync
+Info (12021): Found 1 design units, including 1 entities, in source file verificare.v
+    Info (12023): Found entity 1: verificare
+Info (12021): Found 1 design units, including 1 entities, in source file syncro.v
+    Info (12023): Found entity 1: syncro
+Info (12021): Found 1 design units, including 1 entities, in source file sipo.v
+    Info (12023): Found entity 1: SIPO
+Info (12021): Found 1 design units, including 1 entities, in source file random_coord.v
+    Info (12023): Found entity 1: random_coord
+Info (12021): Found 1 design units, including 1 entities, in source file ps2.v
+    Info (12023): Found entity 1: ps2
+Info (12021): Found 1 design units, including 1 entities, in source file latch_d_ck.v
+    Info (12023): Found entity 1: latch_D_ck
+Info (12021): Found 1 design units, including 1 entities, in source file hsync.v
+    Info (12023): Found entity 1: hsync
+Info (12021): Found 1 design units, including 1 entities, in source file divizor_simplu.v
+    Info (12023): Found entity 1: divizor_simplu
+Info (12021): Found 1 design units, including 1 entities, in source file choose_sync.v
+    Info (12023): Found entity 1: choose_sync
+Info (12021): Found 1 design units, including 1 entities, in source file ceas.v
+    Info (12023): Found entity 1: ceas
+Info (12021): Found 1 design units, including 1 entities, in source file move.v
+    Info (12023): Found entity 1: move
+Warning (10090): Verilog HDL syntax warning at vga.v(170): extra block comment delimiter characters /* within block comment
+Info (12021): Found 1 design units, including 1 entities, in source file vga.v
+    Info (12023): Found entity 1: vga
+Warning (10236): Verilog HDL Implicit Net warning at syncro.v(19): created implicit net for "disp_active_h"
+Warning (10236): Verilog HDL Implicit Net warning at syncro.v(20): created implicit net for "disp_active_v"
+Warning (10236): Verilog HDL Implicit Net warning at random_coord.v(58): created implicit net for "R"
+Warning (10236): Verilog HDL Implicit Net warning at random_coord.v(59): created implicit net for "G"
+Warning (10236): Verilog HDL Implicit Net warning at random_coord.v(60): created implicit net for "B"
+Warning (10236): Verilog HDL Implicit Net warning at move.v(17): created implicit net for "xpos"
+Warning (10236): Verilog HDL Implicit Net warning at move.v(17): created implicit net for "ypos"
+Warning (10236): Verilog HDL Implicit Net warning at move.v(18): created implicit net for "led"
+Warning (10236): Verilog HDL Implicit Net warning at vga.v(201): created implicit net for "clock_movement"
+Info (12127): Elaborating entity "move" for the top level hierarchy
+Info (12128): Elaborating entity "vga" for hierarchy "vga:display"
+Warning (10230): Verilog HDL assignment warning at vga.v(59): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at vga.v(63): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at vga.v(67): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at vga.v(71): truncated value with size 32 to match size of target (11)
+Info (12128): Elaborating entity "ceas" for hierarchy "vga:display|ceas:c"
+Info (12128): Elaborating entity "divizor_simplu" for hierarchy "vga:display|ceas:c|divizor_simplu:d"
+Info (12128): Elaborating entity "divizor_simplu" for hierarchy "vga:display|divizor_simplu:d1"
+Info (12128): Elaborating entity "choose_sync" for hierarchy "vga:display|choose_sync:sincr"
+Info (12128): Elaborating entity "syncro" for hierarchy "vga:display|choose_sync:sincr|syncro:s0"
+Info (12128): Elaborating entity "hsync" for hierarchy "vga:display|choose_sync:sincr|syncro:s0|hsync:h1"
+Warning (10230): Verilog HDL assignment warning at hsync.v(12): truncated value with size 32 to match size of target (11)
+Info (12128): Elaborating entity "vsync" for hierarchy "vga:display|choose_sync:sincr|syncro:s0|vsync:v1"
+Warning (10230): Verilog HDL assignment warning at vsync.v(13): truncated value with size 32 to match size of target (11)
+Info (12128): Elaborating entity "syncro" for hierarchy "vga:display|choose_sync:sincr|syncro:s1"
+Info (12128): Elaborating entity "hsync" for hierarchy "vga:display|choose_sync:sincr|syncro:s1|hsync:h1"
+Warning (10230): Verilog HDL assignment warning at hsync.v(12): truncated value with size 32 to match size of target (11)
+Info (12128): Elaborating entity "vsync" for hierarchy "vga:display|choose_sync:sincr|syncro:s1|vsync:v1"
+Warning (10230): Verilog HDL assignment warning at vsync.v(13): truncated value with size 32 to match size of target (11)
+Info (12128): Elaborating entity "ps2" for hierarchy "ps2:keyboard"
+Warning (10230): Verilog HDL assignment warning at ps2.v(36): truncated value with size 32 to match size of target (1)
+Info (12128): Elaborating entity "latch_D_ck" for hierarchy "ps2:keyboard|latch_D_ck:ceas"
+Info (10041): Inferred latch for "Q" at latch_D_ck.v(12)
+Info (12128): Elaborating entity "SIPO" for hierarchy "ps2:keyboard|SIPO:registru"
+Warning (10230): Verilog HDL assignment warning at SIPO.v(62): truncated value with size 32 to match size of target (4)
+Info (12128): Elaborating entity "verificare" for hierarchy "ps2:keyboard|verificare:ver"
+Warning (10235): Verilog HDL Always Construct warning at verificare.v(88): variable "sum" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at verificare.v(88): variable "data_in_parallel" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at verificare.v(90): variable "data_in_parallel" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at verificare.v(90): variable "par_check" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10240): Verilog HDL Always Construct warning at verificare.v(86): inferring latch(es) for variable "sum", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at verificare.v(86): inferring latch(es) for variable "ok", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "ok" at verificare.v(89)
+Info (10041): Inferred latch for "sum" at verificare.v(89)
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer vga:display|ceas:c|out
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "vga:display|R2[3]~0" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|R2[2]~1" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|R2[1]~2" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|R2[0]~3" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|G2[3]~0" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|G2[2]~1" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|G2[1]~2" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|G2[0]~3" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|B2[3]~1" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|B2[2]~2" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|B2[1]~3" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|B2[0]~0" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|B1[0]~0" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|B1[1]~1" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|B1[2]~2" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|B1[3]~3" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|G1[0]~0" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|G1[1]~1" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|G1[2]~2" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|G1[3]~3" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|R1[0]~0" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|R1[1]~1" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|R1[2]~2" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "vga:display|R1[3]~3" feeding internal logic into a wire
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch ps2:keyboard|verificare:ver|sum has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ps2:keyboard|SIPO:registru|count[2]
+Info (17049): 69 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/move/output_files/move.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 410 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 26 output pins
+    Info (21061): Implemented 379 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 57 warnings
+    Info: Peak virtual memory: 4623 megabytes
+    Info: Processing ended: Sat Jul 14 14:16:26 2018
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/move/output_files/move.map.smsg.
+
+
