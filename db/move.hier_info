@@ -1,0 +1,493 @@
+|move
+clk => clk.IN2
+mode => mode.IN1
+rst => rst.IN2
+disp_active <= vga:display.port7
+R[0] <= vga:display.port8
+R[1] <= vga:display.port8
+R[2] <= vga:display.port8
+R[3] <= vga:display.port8
+G[0] <= vga:display.port9
+G[1] <= vga:display.port9
+G[2] <= vga:display.port9
+G[3] <= vga:display.port9
+B[0] <= vga:display.port10
+B[1] <= vga:display.port10
+B[2] <= vga:display.port10
+B[3] <= vga:display.port10
+hsync <= vga:display.port11
+vsync <= vga:display.port12
+hsync_neg <= vga:display.port13
+vsync_neg <= vga:display.port14
+clock_key => clock_key.IN1
+data_key => data_key.IN1
+data_out[0] <= key[0].DB_MAX_OUTPUT_PORT_TYPE
+data_out[1] <= key[1].DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= key[2].DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= key[3].DB_MAX_OUTPUT_PORT_TYPE
+data_out[4] <= key[4].DB_MAX_OUTPUT_PORT_TYPE
+data_out[5] <= key[5].DB_MAX_OUTPUT_PORT_TYPE
+data_out[6] <= key[6].DB_MAX_OUTPUT_PORT_TYPE
+data_out[7] <= key[7].DB_MAX_OUTPUT_PORT_TYPE
+new_code <= new_code.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|move|vga:display
+clk => clk.IN2
+mode => mode.IN2
+rst => rst.IN1
+key[0] => Decoder1.IN7
+key[1] => Decoder1.IN6
+key[2] => Decoder1.IN5
+key[3] => Decoder1.IN4
+key[4] => Decoder1.IN3
+key[5] => Decoder1.IN2
+key[6] => Decoder1.IN1
+key[7] => Decoder1.IN0
+new_code => ~NO_FANOUT~
+xpos[0] <= choose_sync:sincr.port3
+xpos[1] <= choose_sync:sincr.port3
+xpos[2] <= choose_sync:sincr.port3
+xpos[3] <= choose_sync:sincr.port3
+xpos[4] <= choose_sync:sincr.port3
+xpos[5] <= choose_sync:sincr.port3
+xpos[6] <= choose_sync:sincr.port3
+xpos[7] <= choose_sync:sincr.port3
+xpos[8] <= choose_sync:sincr.port3
+xpos[9] <= choose_sync:sincr.port3
+xpos[10] <= choose_sync:sincr.port3
+ypos[0] <= choose_sync:sincr.port4
+ypos[1] <= choose_sync:sincr.port4
+ypos[2] <= choose_sync:sincr.port4
+ypos[3] <= choose_sync:sincr.port4
+ypos[4] <= choose_sync:sincr.port4
+ypos[5] <= choose_sync:sincr.port4
+ypos[6] <= choose_sync:sincr.port4
+ypos[7] <= choose_sync:sincr.port4
+ypos[8] <= choose_sync:sincr.port4
+ypos[9] <= choose_sync:sincr.port4
+ypos[10] <= choose_sync:sincr.port4
+disp_active <= choose_sync:sincr.port7
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[3] <= R.DB_MAX_OUTPUT_PORT_TYPE
+G[0] <= G.DB_MAX_OUTPUT_PORT_TYPE
+G[1] <= G.DB_MAX_OUTPUT_PORT_TYPE
+G[2] <= G.DB_MAX_OUTPUT_PORT_TYPE
+G[3] <= G.DB_MAX_OUTPUT_PORT_TYPE
+B[0] <= B.DB_MAX_OUTPUT_PORT_TYPE
+B[1] <= B.DB_MAX_OUTPUT_PORT_TYPE
+B[2] <= B.DB_MAX_OUTPUT_PORT_TYPE
+B[3] <= B.DB_MAX_OUTPUT_PORT_TYPE
+hsync <= choose_sync:sincr.port6
+vsync <= choose_sync:sincr.port5
+hsync_neg <= choose_sync:sincr.port6
+vsync_neg <= choose_sync:sincr.port5
+
+
+|move|vga:display|ceas:c
+clock => clock.IN1
+mode => out.OUTPUTSELECT
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|move|vga:display|ceas:c|divizor_simplu:d
+clock => numar[0].CLK
+clock => numar[1].CLK
+clock => numar[2].CLK
+clock => numar[3].CLK
+clock => numar[4].CLK
+clock => numar[5].CLK
+clock => numar[6].CLK
+clock => numar[7].CLK
+clock => numar[8].CLK
+clock => numar[9].CLK
+clock => numar[10].CLK
+clock => numar[11].CLK
+clock => numar[12].CLK
+clock => numar[13].CLK
+clock => numar[14].CLK
+clock => numar[15].CLK
+clock => numar[16].CLK
+clock => numar[17].CLK
+clock => numar[18].CLK
+clock => numar[19].CLK
+clock => numar[20].CLK
+clock => numar[21].CLK
+clock => numar[22].CLK
+clock => numar[23].CLK
+clock => numar[24].CLK
+clock => numar[25].CLK
+clock => numar[26].CLK
+clock => numar[27].CLK
+clock => numar[28].CLK
+clock => numar[29].CLK
+clock => numar[30].CLK
+clock => numar[31].CLK
+out <= numar[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|move|vga:display|divizor_simplu:d1
+clock => numar[0].CLK
+clock => numar[1].CLK
+clock => numar[2].CLK
+clock => numar[3].CLK
+clock => numar[4].CLK
+clock => numar[5].CLK
+clock => numar[6].CLK
+clock => numar[7].CLK
+clock => numar[8].CLK
+clock => numar[9].CLK
+clock => numar[10].CLK
+clock => numar[11].CLK
+clock => numar[12].CLK
+clock => numar[13].CLK
+clock => numar[14].CLK
+clock => numar[15].CLK
+clock => numar[16].CLK
+clock => numar[17].CLK
+clock => numar[18].CLK
+clock => numar[19].CLK
+clock => numar[20].CLK
+clock => numar[21].CLK
+clock => numar[22].CLK
+clock => numar[23].CLK
+clock => numar[24].CLK
+clock => numar[25].CLK
+clock => numar[26].CLK
+clock => numar[27].CLK
+clock => numar[28].CLK
+clock => numar[29].CLK
+clock => numar[30].CLK
+clock => numar[31].CLK
+out <= numar[17].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|move|vga:display|choose_sync:sincr
+clock => clock.IN2
+reset => ~NO_FANOUT~
+mode => Decoder0.IN0
+xpos[0] <= xpos[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+xpos[1] <= xpos[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+xpos[2] <= xpos[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+xpos[3] <= xpos[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+xpos[4] <= xpos[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+xpos[5] <= xpos[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+xpos[6] <= xpos[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+xpos[7] <= xpos[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+xpos[8] <= xpos[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+xpos[9] <= xpos[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+xpos[10] <= xpos[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ypos[0] <= ypos[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ypos[1] <= ypos[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ypos[2] <= ypos[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ypos[3] <= ypos[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ypos[4] <= ypos[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ypos[5] <= ypos[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ypos[6] <= ypos[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ypos[7] <= ypos[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ypos[8] <= ypos[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ypos[9] <= ypos[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ypos[10] <= ypos[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+vsync <= vsync~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hsync <= hsync~reg0.DB_MAX_OUTPUT_PORT_TYPE
+disp_active <= disp_active~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|move|vga:display|choose_sync:sincr|syncro:s0
+clock => clock.IN1
+xpos[0] <= hsync:h1.port1
+xpos[1] <= hsync:h1.port1
+xpos[2] <= hsync:h1.port1
+xpos[3] <= hsync:h1.port1
+xpos[4] <= hsync:h1.port1
+xpos[5] <= hsync:h1.port1
+xpos[6] <= hsync:h1.port1
+xpos[7] <= hsync:h1.port1
+xpos[8] <= hsync:h1.port1
+xpos[9] <= hsync:h1.port1
+xpos[10] <= hsync:h1.port1
+hsync <= hsync:h1.port2
+ypos[0] <= vsync:v1.port1
+ypos[1] <= vsync:v1.port1
+ypos[2] <= vsync:v1.port1
+ypos[3] <= vsync:v1.port1
+ypos[4] <= vsync:v1.port1
+ypos[5] <= vsync:v1.port1
+ypos[6] <= vsync:v1.port1
+ypos[7] <= vsync:v1.port1
+ypos[8] <= vsync:v1.port1
+ypos[9] <= vsync:v1.port1
+ypos[10] <= vsync:v1.port1
+vsync <= vsync:v1.port2
+disp_active <= disp_active~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|move|vga:display|choose_sync:sincr|syncro:s0|hsync:h1
+clk => hsync~reg0.CLK
+clk => disp_active~reg0.CLK
+clk => newline~reg0.CLK
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => count[4].CLK
+clk => count[5].CLK
+clk => count[6].CLK
+clk => count[7].CLK
+clk => count[8].CLK
+clk => count[9].CLK
+clk => count[10].CLK
+xpos[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+xpos[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+xpos[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+xpos[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+xpos[4] <= count[4].DB_MAX_OUTPUT_PORT_TYPE
+xpos[5] <= count[5].DB_MAX_OUTPUT_PORT_TYPE
+xpos[6] <= count[6].DB_MAX_OUTPUT_PORT_TYPE
+xpos[7] <= count[7].DB_MAX_OUTPUT_PORT_TYPE
+xpos[8] <= count[8].DB_MAX_OUTPUT_PORT_TYPE
+xpos[9] <= count[9].DB_MAX_OUTPUT_PORT_TYPE
+xpos[10] <= count[10].DB_MAX_OUTPUT_PORT_TYPE
+hsync <= hsync~reg0.DB_MAX_OUTPUT_PORT_TYPE
+disp_active <= disp_active~reg0.DB_MAX_OUTPUT_PORT_TYPE
+newline <= newline~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|move|vga:display|choose_sync:sincr|syncro:s0|vsync:v1
+newline_clk => vsync~reg0.CLK
+newline_clk => disp_active~reg0.CLK
+newline_clk => count[0].CLK
+newline_clk => count[1].CLK
+newline_clk => count[2].CLK
+newline_clk => count[3].CLK
+newline_clk => count[4].CLK
+newline_clk => count[5].CLK
+newline_clk => count[6].CLK
+newline_clk => count[7].CLK
+newline_clk => count[8].CLK
+newline_clk => count[9].CLK
+newline_clk => count[10].CLK
+ypos[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+ypos[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+ypos[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+ypos[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+ypos[4] <= count[4].DB_MAX_OUTPUT_PORT_TYPE
+ypos[5] <= count[5].DB_MAX_OUTPUT_PORT_TYPE
+ypos[6] <= count[6].DB_MAX_OUTPUT_PORT_TYPE
+ypos[7] <= count[7].DB_MAX_OUTPUT_PORT_TYPE
+ypos[8] <= count[8].DB_MAX_OUTPUT_PORT_TYPE
+ypos[9] <= count[9].DB_MAX_OUTPUT_PORT_TYPE
+ypos[10] <= count[10].DB_MAX_OUTPUT_PORT_TYPE
+vsync <= vsync~reg0.DB_MAX_OUTPUT_PORT_TYPE
+disp_active <= disp_active~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|move|vga:display|choose_sync:sincr|syncro:s1
+clock => clock.IN1
+xpos[0] <= hsync:h1.port1
+xpos[1] <= hsync:h1.port1
+xpos[2] <= hsync:h1.port1
+xpos[3] <= hsync:h1.port1
+xpos[4] <= hsync:h1.port1
+xpos[5] <= hsync:h1.port1
+xpos[6] <= hsync:h1.port1
+xpos[7] <= hsync:h1.port1
+xpos[8] <= hsync:h1.port1
+xpos[9] <= hsync:h1.port1
+xpos[10] <= hsync:h1.port1
+hsync <= hsync:h1.port2
+ypos[0] <= vsync:v1.port1
+ypos[1] <= vsync:v1.port1
+ypos[2] <= vsync:v1.port1
+ypos[3] <= vsync:v1.port1
+ypos[4] <= vsync:v1.port1
+ypos[5] <= vsync:v1.port1
+ypos[6] <= vsync:v1.port1
+ypos[7] <= vsync:v1.port1
+ypos[8] <= vsync:v1.port1
+ypos[9] <= vsync:v1.port1
+ypos[10] <= vsync:v1.port1
+vsync <= vsync:v1.port2
+disp_active <= disp_active~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|move|vga:display|choose_sync:sincr|syncro:s1|hsync:h1
+clk => hsync~reg0.CLK
+clk => disp_active~reg0.CLK
+clk => newline~reg0.CLK
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => count[4].CLK
+clk => count[5].CLK
+clk => count[6].CLK
+clk => count[7].CLK
+clk => count[8].CLK
+clk => count[9].CLK
+clk => count[10].CLK
+xpos[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+xpos[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+xpos[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+xpos[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+xpos[4] <= count[4].DB_MAX_OUTPUT_PORT_TYPE
+xpos[5] <= count[5].DB_MAX_OUTPUT_PORT_TYPE
+xpos[6] <= count[6].DB_MAX_OUTPUT_PORT_TYPE
+xpos[7] <= count[7].DB_MAX_OUTPUT_PORT_TYPE
+xpos[8] <= count[8].DB_MAX_OUTPUT_PORT_TYPE
+xpos[9] <= count[9].DB_MAX_OUTPUT_PORT_TYPE
+xpos[10] <= count[10].DB_MAX_OUTPUT_PORT_TYPE
+hsync <= hsync~reg0.DB_MAX_OUTPUT_PORT_TYPE
+disp_active <= disp_active~reg0.DB_MAX_OUTPUT_PORT_TYPE
+newline <= newline~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|move|vga:display|choose_sync:sincr|syncro:s1|vsync:v1
+newline_clk => vsync~reg0.CLK
+newline_clk => disp_active~reg0.CLK
+newline_clk => count[0].CLK
+newline_clk => count[1].CLK
+newline_clk => count[2].CLK
+newline_clk => count[3].CLK
+newline_clk => count[4].CLK
+newline_clk => count[5].CLK
+newline_clk => count[6].CLK
+newline_clk => count[7].CLK
+newline_clk => count[8].CLK
+newline_clk => count[9].CLK
+newline_clk => count[10].CLK
+ypos[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+ypos[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+ypos[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+ypos[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+ypos[4] <= count[4].DB_MAX_OUTPUT_PORT_TYPE
+ypos[5] <= count[5].DB_MAX_OUTPUT_PORT_TYPE
+ypos[6] <= count[6].DB_MAX_OUTPUT_PORT_TYPE
+ypos[7] <= count[7].DB_MAX_OUTPUT_PORT_TYPE
+ypos[8] <= count[8].DB_MAX_OUTPUT_PORT_TYPE
+ypos[9] <= count[9].DB_MAX_OUTPUT_PORT_TYPE
+ypos[10] <= count[10].DB_MAX_OUTPUT_PORT_TYPE
+vsync <= vsync~reg0.DB_MAX_OUTPUT_PORT_TYPE
+disp_active <= disp_active~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|move|ps2:keyboard
+clock_key => clock_key.IN1
+data_key => data_key.IN1
+clock_fpga => clock_fpga.IN4
+reset => reset.IN2
+led <= latch_D_ck:iesire.port2
+data_out[0] <= dout[1].DB_MAX_OUTPUT_PORT_TYPE
+data_out[1] <= dout[2].DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= dout[3].DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= dout[4].DB_MAX_OUTPUT_PORT_TYPE
+data_out[4] <= dout[5].DB_MAX_OUTPUT_PORT_TYPE
+data_out[5] <= dout[6].DB_MAX_OUTPUT_PORT_TYPE
+data_out[6] <= dout[7].DB_MAX_OUTPUT_PORT_TYPE
+data_out[7] <= dout[8].DB_MAX_OUTPUT_PORT_TYPE
+new_code <= latch_D_ck:iesire.port2
+
+
+|move|ps2:keyboard|latch_D_ck:ceas
+D => Q$latch.DATAIN
+ck => Q$latch.LATCH_ENABLE
+Q <= Q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|move|ps2:keyboard|latch_D_ck:date
+D => Q$latch.DATAIN
+ck => Q$latch.LATCH_ENABLE
+Q <= Q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|move|ps2:keyboard|SIPO:registru
+din => s.DATAA
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => s[0].CLK
+clk => s[1].CLK
+clk => s[2].CLK
+clk => s[3].CLK
+clk => s[4].CLK
+clk => s[5].CLK
+clk => s[6].CLK
+clk => s[7].CLK
+clk => s[8].CLK
+clk => s[9].CLK
+clk => s[10].CLK
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+dout[0] <= s[0].DB_MAX_OUTPUT_PORT_TYPE
+dout[1] <= s[1].DB_MAX_OUTPUT_PORT_TYPE
+dout[2] <= s[2].DB_MAX_OUTPUT_PORT_TYPE
+dout[3] <= s[3].DB_MAX_OUTPUT_PORT_TYPE
+dout[4] <= s[4].DB_MAX_OUTPUT_PORT_TYPE
+dout[5] <= s[5].DB_MAX_OUTPUT_PORT_TYPE
+dout[6] <= s[6].DB_MAX_OUTPUT_PORT_TYPE
+dout[7] <= s[7].DB_MAX_OUTPUT_PORT_TYPE
+dout[8] <= s[8].DB_MAX_OUTPUT_PORT_TYPE
+dout[9] <= s[9].DB_MAX_OUTPUT_PORT_TYPE
+dout[10] <= s[10].DB_MAX_OUTPUT_PORT_TYPE
+num[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+num[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+num[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+num[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|move|ps2:keyboard|verificare:ver
+clock_intermediar => ~NO_FANOUT~
+reset => ~NO_FANOUT~
+data_in => ~NO_FANOUT~
+clock_fpga => ~NO_FANOUT~
+data_in_parallel[0] => Mux0.IN19
+data_in_parallel[0] => always0.IN0
+data_in_parallel[1] => Mux0.IN18
+data_in_parallel[2] => Mux0.IN17
+data_in_parallel[3] => Mux0.IN16
+data_in_parallel[4] => Mux0.IN15
+data_in_parallel[5] => Mux0.IN14
+data_in_parallel[6] => Mux0.IN13
+data_in_parallel[7] => Mux0.IN12
+data_in_parallel[8] => Mux0.IN11
+data_in_parallel[9] => Mux0.IN10
+data_in_parallel[9] => always0.IN1
+data_in_parallel[10] => Mux0.IN9
+data_in_parallel[10] => always0.IN1
+ok <= ok$latch.DB_MAX_OUTPUT_PORT_TYPE
+count[0] => LessThan0.IN8
+count[0] => Add0.IN8
+count[0] => Equal0.IN2
+count[1] => LessThan0.IN7
+count[1] => Add0.IN7
+count[1] => Equal0.IN1
+count[2] => LessThan0.IN6
+count[2] => Add0.IN6
+count[2] => Equal0.IN31
+count[3] => LessThan0.IN5
+count[3] => Add0.IN5
+count[3] => Equal0.IN0
+
+
+|move|ps2:keyboard|latch_D_ck:iesire
+D => Q$latch.DATAIN
+ck => Q$latch.LATCH_ENABLE
+Q <= Q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
